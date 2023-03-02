@@ -4,7 +4,7 @@ import tinify from 'tinify';
 tinify.key = process.env.TINIFY_API_KEY;
 
 /** Tiny Png - Compress image from local file */
-export const tinyPng =async (req:any, res:any, next:any) => {
+export const compressFromFile =async (req:any, res:any, next:any) => {
     try{
         const imgPath = req?.imgFileName;
         const dir = req?.dirPath;
@@ -22,8 +22,8 @@ export const tinyPng =async (req:any, res:any, next:any) => {
                 resultImg.push(outputImg.split('uploaded-image')[1]);
             };
             res.status(200).json({
-                'baseUrl' : "http://172.23.10.167:5001/",
-                "imagePath" : resultImg
+                'baseUrl' : process.env.IP + process.env.PORT,
+                "compressImagePath" : resultImg,
             });
         } else {
             throw new Error('something went wrong')
@@ -35,13 +35,13 @@ export const tinyPng =async (req:any, res:any, next:any) => {
 };
 
 /** Tiny Png - Compress image from Buffer */
-export const testRoute =async (req:any, res:any, next:any) => {
+export const compressFromBuffer =async (req:any, res:any, next:any) => {
     try{
         const imgPath = req?.imgFileName;
         if(imgPath?.length > 0){
             res.status(200).json({
-                'baseUrl' : "http://172.23.10.167:5001/",
-                "imagePath" : imgPath
+                'baseUrl' : process.env.IP + process.env.PORT,
+                "compressImagePath" : imgPath
             });
         } else {
             throw new Error('something went wrong')
