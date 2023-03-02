@@ -60,7 +60,7 @@ export const CompressFileAndWriteLocally = async (req: any, res: any, next: any)
   try {
     const dirPath = `./uploaded-image/tiny/${new Date()
       .getTime()
-      .toString()}_${alphNumericName()}`;
+      .toString()}_${alphNumericName()}/output`;
     req.dirPath = dirPath;
     req.imgFileName = [];
 
