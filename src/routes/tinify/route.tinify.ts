@@ -10,7 +10,7 @@ const authentication = JwtAuthentication.getInstance().authenticateUser;
 const lamaAiRoute = express.Router();
 
 // Server for lama
-lamaAiRoute.post('/', fileUpload.fields([{name: 'imageFiles', maxCount: 10}]), fileWriteLocally, compressFromFile)
+lamaAiRoute.post('/from-file', fileUpload.fields([{name: 'imageFiles', maxCount: 10}]), fileWriteLocally, compressFromFile)
 lamaAiRoute.post('/from-buffer', fileUpload.fields([{name: 'imageFiles', maxCount: 10}]), CompressFileAndWriteLocally, compressFromBuffer)
 
 

@@ -13,6 +13,6 @@ const jwt = JwtAuthentication.getInstance();
 
 registeredRouters.use("/auth", loginRoute);
 registeredRouters.use("/login", authRoutes);
-registeredRouters.use("/braincraft-ai", lamaAiRoute);
+registeredRouters.use("/braincraft", lamaAiRoute);
 
 export = registeredRouters;
